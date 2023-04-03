@@ -1,0 +1,916 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500&display=swap'); 
+
+*{
+  font-family: 'Poppins', sans-serif;
+}
+
+body,html{
+    height:100%;
+    width: 100%;
+    margin: 0;
+    overflow-x: hidden;   
+    background-image: linear-gradient(135deg,  #007991 30%, #85fad7 100%);
+}
+
+.App{
+    padding-bottom: 6rem;
+}
+
+#root{
+    height:100%;
+    width: 100%;
+    margin: 0;
+}
+
+.startBody{
+    height:100%;
+    width: 100%;
+    margin: 0;
+    overflow-x: hidden;
+}
+
+.inAppBody{
+    /* background-color: #62584f; */
+    /* background-color: #DEF2F1; */
+}
+
+::-webkit-input-placeholder{
+    color: white;
+}
+
+input:focus::-webkit-input-placeholder {
+    opacity: 0;
+    color: white;
+}
+
+.largeLogoBox{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    top: 0;
+    padding-top: 1rem;
+ }
+
+.largeAppName{
+    color:white;
+    font-weight: 400;
+    font-size:xxx-large;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.smallLogoBox{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.smallAppName{
+    color:white;
+    font-weight: 400;
+    font-size:xx-large;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.logo{
+    margin-top: 2rem;
+}
+
+.logInContainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 4rem;
+}
+
+.formlog,.formreg{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.logInForm{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 0.5rem;
+    margin-bottom: 1rem;
+    border-radius: 29px;
+    border-color: white;
+    border-style:solid;
+    padding: 2rem 4rem;
+}
+
+.emailLogIn ,.passwordLogIn,.insertFinalMark input{
+    text-align: center;
+    padding-bottom: 2px;
+    background:transparent;
+    border:none;
+    border-bottom: 1px solid white;
+    outline: none;
+    color: white;
+}
+
+.emailLogIn{
+    margin-bottom: 50px;
+}
+
+.log{
+    font-size: medium;
+    font-weight: 200;
+    color: white;
+}
+
+
+.goToLogInBtn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 6rem;
+    margin-top: 4rem;
+}
+
+button{
+    background: rgba(255,255, 255, .18);
+    outline: none;
+    border: none;
+    border-radius: 8px;
+    padding: 5px 10px;
+    height: 2rem;
+    /* max-width: max-content;
+    min-width: min-content; */
+    transition-duration: 0.5s;
+    color: white;
+    font-weight:bolder;
+    width: auto;
+}
+  
+button:hover{
+    background-color: rgba(255,255,255, .30);;
+}
+
+.active{
+    background-color: rgba(255,255,255, .30);
+}
+
+.linkToAvCrs{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(255,255, 255, .20);
+    outline: none;
+    border: none;
+    border-radius: 8px;
+    padding: 1px 10px;
+    height: 2rem;
+    transition-duration: 0.5s;
+    color: white;
+    text-decoration: none; 
+    font-size: small;
+    width: auto;
+}
+
+.linkToAvCrs:hover{
+    background-color: rgba(255,255,255, .30);
+}
+
+.logInBtn{
+    margin-top: 1rem;
+    margin-bottom: 4rem;
+}
+
+.createAcc{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 2rem; 
+}
+
+.notSignedIn{
+    font-size: small;
+    color: white;
+    margin-bottom: 0.5rem;
+ }
+ 
+.createAccountBtn{
+    margin-top: 1rem;
+}
+
+.accOptions{
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+#student ,#prof , #secr{
+    width: 8rem;
+    margin: 2rem;
+}
+
+.newAccCont,.pushbtn{
+   color: white;
+   display: flex;
+   flex-direction: column;
+   justify-content: center; 
+   align-items: center; 
+   margin-top: 2rem;
+   margin-bottom: 4rem;
+}
+
+.pushbtn{
+   color: white;
+   display: flex;
+   flex-direction: column;
+   justify-content: center; 
+   align-items: center; 
+   margin-top: 4rem;
+   margin-bottom: 2rem;
+}
+
+.accOptions{
+   display: flex;
+   align-items: center;  
+   justify-content: center;
+}
+
+.accForm{
+   display: flex;
+   flex-direction: column;
+   justify-content: center; 
+   align-items: center;  
+   border-radius: 29px;
+   border-color: white;
+    border-style:solid;
+   height: auto;
+   width: auto;
+   padding-top: 2rem;
+   padding-left: 6rem;
+   padding-right: 6rem;
+   margin-top: 1rem;
+   margin-bottom: 2rem;
+}
+
+.accForm input{
+  margin-bottom: 2.5rem;;
+  text-align: center;
+  padding-bottom: 1rem;
+  background:transparent;
+  border:none;
+  outline: none;
+  border-bottom: 1px solid white;
+  padding: 2px;
+  color: white;
+}
+
+.newAccountBtn{
+    margin-bottom: 2rem;
+}
+
+.sidebar{
+    position: fixed;
+    top: 0;
+    left:0;
+    height: 100%;
+    width: 220px;
+    background-color: #006579;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+}
+
+.sidebar ul{
+   margin-top: 1rem;
+   display: flex;
+   flex-direction: column;
+   margin-left: 1rem;
+   margin-right: 1rem;
+   padding: 0;
+}
+
+.sidebar li{
+    height: 2rem;
+    list-style: none;  
+    margin-top: 2rem;
+}
+
+.sidebar button,.LogOutCont{
+   height: 2.5rem;
+   width: 12rem;
+   text-decoration: none; 
+   display: flex;
+   align-items: center;
+   place-content: center;
+   padding-left: 1rem;
+   padding-right: 1rem;
+   transition-duration: 0.7s;
+   color: white;
+}
+
+.sidebar button:hover,
+.sidebar button.active{
+    border-radius: 6px;
+    background: rgba(255,255, 255, .30);
+}
+
+.sidebar button p{
+    margin-left: 0.5rem;
+    font-weight: lighter;
+}
+
+.mainBody{
+   height: 100%;
+   width: calc(100vw-220px);
+   margin-left: 220px;
+   display: flex;
+   flex-direction: column;
+   justify-content: flex-start;
+   align-items: center;   
+}
+
+
+
+.mainBox{
+    margin-top: 4rem;
+    margin-bottom: 8rem;
+    width: 80%;
+    padding: 1.5rem;
+    border-radius: 29px;
+    border-color: white;
+    border-style:solid;
+}
+
+.titleBox{
+    display: flex;  
+    width: 55%;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid white;
+}
+
+.titleBox span{
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+    color: white;
+    font-size: x-large;
+}
+
+.boxSVG{
+   margin-right: 0.5rem;
+   height: 30px;
+   width: 30px;
+   display: flex;
+   padding: 0.2rem;
+   justify-content: center; 
+   align-items: center;
+   background-color:  #00aacc;
+   border-radius: 9px;
+}
+
+#buttonFlex{
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+    width: 14rem;
+}
+
+#buttonFlex svg{
+    margin-right: 0.5rem;
+}
+
+.boxHeader{
+    display: flex;
+    justify-content: space-between;
+}
+
+#saveCourseEdit{
+    margin-right: 0.5rem;
+}
+
+.courseTableBox{
+  margin-top: 3rem;
+  align-items: center;
+  color: white;
+  overflow: auto;
+}
+
+.crsSecrTable{
+    width: 100%;
+    border-collapse: collapse; 
+    border-spacing: 0 1em;
+}
+
+.courseTableHeader{
+    position: sticky;
+    text-align: center;
+    border-bottom: 1px solid white;
+    font-size: large;
+}
+
+.crsSecrTable th{
+    padding-bottom: 1rem;
+}
+
+.crsSecrTable td{
+    text-align: center;
+    font-size: small;
+    width: 8rem;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+}
+
+td input{
+    text-align: center;
+    padding-bottom: 2px;
+    background:transparent;
+    border:none;
+    border-bottom: 1px solid white;
+    outline: none;
+    color: white;
+}
+
+.mainPageHeader{
+    width:100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.search_container{
+    place-items:center;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 3px;
+    width: 100%;
+    position: sticky;
+}
+
+.search_area {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border:none;
+    outline: none;
+    margin: 2rem;
+    border-radius: 29px;
+    background-color:  #095868;
+    color: white;
+    transition-duration: 0.2s;
+}
+
+.search_area:focus-within{
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+} 
+
+
+.search_area input{
+    background-color: transparent;
+    border: none;
+    align-items: center;
+    margin-left: 0.5rem;
+    color: white;
+    font-size: medium;
+    width:80%
+}
+
+.search_area input:focus{
+    outline:none;
+} 
+
+.icons{
+    display: flex;
+    justify-content: center;
+    place-items: center;
+    margin: 2rem;
+}
+
+.icons button{
+    margin: 0.5rem;
+}
+
+#searchBarBtn{
+    display: flex;
+    align-items: center;
+}
+
+.search_area{
+    width: 70%;
+    display: flex;
+    justify-content: start;
+}
+
+.labelSearch{
+    display: flex;
+    padding-left: 1.5rem;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    width:100%
+}
+
+
+.infoForm{
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; 
+    align-items: center;  
+    /* background-color: #1e5352; */
+    border-color: white;
+    border-style:solid;
+    border-radius: 29px;
+    height: auto;
+    width: auto;
+    padding-top: 1rem ;
+    padding-bottom: 2rem; 
+ }
+
+
+.profileInfo{
+    width: 80%;
+    margin-bottom: 4rem;
+}
+
+.displayInfoForm{
+    display: flex;
+    flex-direction: column;
+    justify-content: center; 
+    align-items: center;  
+}
+
+.displayInfoForm label{
+    color: white;
+    margin-bottom: 1rem;
+    font-size: medium;
+}
+
+.editInfoForm{
+    display: flex;
+    flex-direction: column;
+}
+
+ .editInfoForm input{
+    margin-bottom: 1rem;;
+    text-align: center;
+    background:transparent;
+    border:none;
+    outline: none;
+    border-bottom: 1px solid white;
+    padding: 0.5rem;
+    color: white;
+    font-size: medium;
+    margin-right: 0.5rem;
+  }
+
+  .editInfoForm span{
+     display: flex;
+     justify-content: center; 
+     align-items: center;  
+     margin-top: 1rem;
+     margin-bottom: 1rem;
+  }
+
+.profilePic{
+    margin-bottom: 1.5rem;
+ } 
+
+ .edit{
+    width: 100%;
+    margin-right: 2rem;
+    margin-top: 0.5rem;
+    display: flex;
+    justify-content: end;
+ }
+
+ .button,.edit a{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(255,255, 255, .20);
+    outline: none;
+    border: none;
+    border-radius: 8px;
+    padding: 1px 10px;
+    height: 2rem;
+    transition-duration: 0.5s;
+    color: white;
+    text-decoration: none; 
+    font-size: small;
+    width: auto;
+ }
+
+ .button:hover ,.edit a:hover{
+    background-color: rgba(255,255,255, .30);;
+}
+
+.courseList{
+    padding: 0;
+    color: white;
+}
+
+.courseList li{
+  display: flex;
+  justify-content: space-between;
+  padding: 0;
+  font-size: medium;
+}
+
+.profCourseCard{
+    color: white;
+}
+
+.profCourseName{
+  display: flex;
+  font-size: medium;
+  width: 55%;
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
+  /* border-bottom: 1px solid white; */
+}
+
+#courseProf{
+    margin-left: 8rem;
+}
+
+.profCourseTable{
+    /* width: 55%; */
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+    border-top: 1px solid white;
+}
+
+.profCourseTable thead{
+    text-align: center;
+    padding-bottom: 0.5rem;
+    position: sticky;
+}
+
+th{
+    padding-bottom: 1rem;
+    font-weight: lighter;
+    padding-right: 1rem;
+}
+
+td input{
+    width: 3rem;
+}
+
+.profCourseTable td{
+    font-size: small;
+    text-align: center;
+    width: 20rem;
+    padding-right: 1rem; 
+}
+
+.profCourseTable th{
+    width: 20rem;
+}
+
+#headerIcon,#editProfCourse,#editCourseMark,#searchBarBtn,#editInfoBtn,#backBtn{
+    background: none;
+}
+
+#goToCourses{
+    background: none;
+    font-size: large;
+    padding-left: 0rem;
+    font-weight: lighter;
+}
+
+.homeContainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: center; 
+    align-items: center;
+    width: 70%
+}
+
+.courseListLinkBox{
+    /* background-color: #68b0ad5b; */
+    border-color: white;
+    border-style:solid;
+    margin-top: 4rem;
+    margin-bottom: 2rem;
+    padding: 1rem;
+    border-radius: 29px;  
+    width: 40%;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px; 
+}
+
+.boxHeaderSmall{
+    display: flex;
+    justify-content: flex-start; 
+    align-items: center;
+}
+
+.titleBoxSmall{
+    display: flex;  
+    width: 70%;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid white;
+}
+
+.titleBoxSmall label{
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+    color: white;
+    font-size: large;
+}
+
+.courseListSmallLink{
+    list-style: none;
+    padding: 0;
+    color: white;
+    font-size: small;
+}
+
+.calendarBox{
+    /* background-color: #1e5352; */
+    border-color: white;
+    border-style:solid;
+    margin-top: 4rem;
+    margin-bottom: 8rem;
+    padding: 1rem;
+    border-radius: 29px;  
+    width: 40%;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+}
+
+
+.buttonsCourses{
+  display: flex;
+  flex-wrap: nowrap;
+}
+
+ .svgLinkButton {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(255,255, 255, .20);
+    outline: none;
+    border: none;
+    border-radius: 8px;
+    padding: 1px 10px;
+    transition-duration: 0.5s;
+    color: white;
+    text-decoration: none; 
+    font-size: small;
+    width: auto;
+    margin-right: 0.5rem;
+ }
+
+.flexCard{
+    display: flex;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+
+}
+
+.firstColumn{
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+    justify-content: space-around;
+}
+
+#courseName{
+    color:white;
+    font-size: medium;
+    padding-left: 0.5rem;
+}
+
+.stdntExercises{
+    width: 85%;
+    height: 8rem;
+    display: flex;
+    /* align-items: center; */
+    color: white;
+    overflow-y:auto;
+    overflow-x: auto;
+    background-color: #68b0ad5b;
+    border-radius: 29px;
+    padding: 1rem;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+    margin-bottom: 2rem;
+    
+}
+
+.stdCourseExTable{
+    width: 100%;
+    height: auto;
+    border-collapse: collapse; 
+    border-spacing: 0 1rem;
+}
+
+.stdCourseExTable thead{
+    text-align: left;
+    position: sticky;
+    border-bottom: 1px solid white;
+}
+
+.stdCourseExTable td{
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+}
+
+
+.exNum{
+    font-size: small;
+    text-align: left;
+    padding-left: 1rem;
+}
+
+.mark{
+    font-size: small;
+    text-align: left;
+}
+
+.mark input{
+    width: 4rem;
+}
+
+.courseHoursCalendar{
+    width: 90%;
+    display: flex;
+    align-items: center;
+    color: white;
+    overflow-y:auto;
+    background-color: #68b0ad5b;
+    border-radius: 29px;
+    padding: 1rem;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px; 
+}
+
+
+.hoursHeaderSmall{
+    display: flex;
+    justify-content: flex-start; 
+    align-items: center;
+    width: 60%;
+}
+
+.hoursTitleBoxSmall,.predictionTitleBoxSmall{
+    display: flex;  
+    width: 80%;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid white;
+}
+
+.hoursTitleBoxSmall span{
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+    color: white;
+    font-size: large;
+}
+
+
+.secondColumn{
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+    justify-content: space-around;
+}
+
+.studentRating,.studentPrediction, .studentFinalMark{
+    display: flex;
+    flex-direction: column;
+    color: white;
+    overflow-y:auto;
+    background-color: #68b0ad5b;
+    border-radius: 29px;
+    padding: 1rem;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+    margin-bottom: 1rem;
+}
+
+.studentRating p, .studentPrediction p {
+    font-size: small;
+}
+
+.studentRating span, .studentPrediction span , .studentFinalMark span{
+    font-size: medium;
+}
+
+.studentPrediction label{
+    color: #44f3ea;
+}
+
+.insertFinalMark{
+    display: flex;
+    align-items: center;
+    margin-top: 0.5rem;
+    font-size: medium;
+}
+
+.insertFinalMark input{
+    width: 4rem;
+    margin-right: 1rem;
+}
