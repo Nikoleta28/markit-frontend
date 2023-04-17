@@ -138,7 +138,7 @@ input:focus::-webkit-input-placeholder {
 }
 
 button{
-    background: rgba(255,255, 255, .18);
+    background: rgba(255,255, 255, .12);
     outline: none;
     border: none;
     border-radius: 8px;
@@ -148,7 +148,7 @@ button{
     min-width: min-content; */
     transition-duration: 0.5s;
     color: white;
-    font-weight:bolder;
+    /* font-weight:bolder; */
     width: auto;
 }
   
@@ -279,7 +279,8 @@ button:hover{
     left:0;
     height: 100%;
     width: 220px;
-    background-color: #006579;
+    /* background-color: #006579; */
+    background-color: #004d60;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -311,13 +312,27 @@ button:hover{
    padding-left: 1rem;
    padding-right: 1rem;
    transition-duration: 0.7s;
-   color: white;
+   color: #ffffff;
+
+
+   line-height: var(--h);
+   /* color: #0000; */
+   text-shadow: 
+     0 var(--_i, var(--h)) #ffffff,
+     0 0 rgb(0 0 0 / calc(var(--_i, 1) * 100%) );
+   background: 
+     linear-gradient(#68d8fd3e 0 0) 
+     bottom/100% calc(100% - var(--_i, 1) * 100%) no-repeat;
+   overflow: hidden;
+   transition: 0.2s;
+  
 }
 
 .sidebar button:hover,
 .sidebar button.active{
-    border-radius: 6px;
-    background: rgba(255,255, 255, .30);
+    /* border-radius: 6px;
+    background: rgba(255,255, 255, .30); */
+    --_i: 0;
 }
 
 .sidebar button p{
@@ -331,7 +346,7 @@ button:hover{
    margin-left: 220px;
    display: flex;
    flex-direction: column;
-   justify-content: flex-start;
+   justify-content: flex-start; 
    align-items: center;   
 }
 
@@ -350,7 +365,7 @@ button:hover{
 .titleBox{
     display: flex;  
     width: 55%;
-    padding-bottom: 0.5rem;
+    padding-bottom: 0.8rem;
     border-bottom: 1px solid white;
 }
 
@@ -363,7 +378,7 @@ button:hover{
 }
 
 .boxSVG{
-   margin-right: 0.5rem;
+   margin-right: 0.8rem;
    height: 30px;
    width: 30px;
    display: flex;
@@ -391,7 +406,7 @@ button:hover{
 }
 
 #saveCourseEdit{
-    margin-right: 0.5rem;
+    margin-right: 1rem;
 }
 
 .courseTableBox{
@@ -424,9 +439,12 @@ button:hover{
     width: 8rem;
     padding-top: 0.5rem;
     padding-bottom: 0.5rem;
+   
+    /* border-bottom: 1px solid white; */
 }
 
 td input{
+    min-width:max-content;
     text-align: center;
     padding-bottom: 2px;
     background:transparent;
@@ -609,6 +627,10 @@ td input{
     background-color: rgba(255,255,255, .30);;
 }
 
+#deleteSecrCourse{
+    margin-left: 1rem;
+}
+
 .courseList{
     padding: 0;
     color: white;
@@ -699,8 +721,9 @@ td input{
     margin-bottom: 2rem;
     padding: 1rem;
     border-radius: 29px;  
-    width: 40%;
-    box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px; 
+    width: 60%;
+    /* background-color: #565b5c38; */
+    /* box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;  */
 }
 
 .boxHeaderSmall{
@@ -740,7 +763,8 @@ td input{
     padding: 1rem;
     border-radius: 29px;  
     width: 40%;
-    box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+    /* background-color: #565b5c38; */
+    /* box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px; */
 }
 
 
@@ -794,10 +818,11 @@ td input{
     color: white;
     overflow-y:auto;
     overflow-x: auto;
-    background-color: #68b0ad5b;
+    /* background-color: #68b0ad5b; */
+    background-color: #565b5c38;
     border-radius: 29px;
     padding: 1rem;
-    box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+    /* box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px; */
     margin-bottom: 2rem;
     
 }
@@ -842,10 +867,11 @@ td input{
     align-items: center;
     color: white;
     overflow-y:auto;
-    background-color: #68b0ad5b;
+    /* background-color: #68b0ad5b; */
+    background-color: #565b5c38;
     border-radius: 29px;
     padding: 1rem;
-    box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px; 
+    /* box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;  */
 }
 
 
@@ -884,10 +910,11 @@ td input{
     flex-direction: column;
     color: white;
     overflow-y:auto;
-    background-color: #68b0ad5b;
+    /* background-color: #68b0ad5b; */
+    background-color: #565b5c38;
     border-radius: 29px;
     padding: 1rem;
-    box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+    /* box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px; */
     margin-bottom: 1rem;
 }
 
