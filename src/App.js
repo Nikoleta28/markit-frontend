@@ -17,8 +17,8 @@ function App() {
     setCurrentForm(formName);
   }
 
-  const authenticated = "";
-  const authenticatedUserId = "";
+  // const authenticated = "";
+  // const authenticatedUserId = "";
 
 
   return (
@@ -31,8 +31,8 @@ function App() {
                 <div>
                   <div className='startBody'>
                       <div className="largeLogoBox">
-                          <svg className="largeLogoIcon" width="110" height="110" viewBox="0 0 48 48"><g fill="none" stroke="#17252A" stroke-linejoin="round" stroke-width="1.2"><path d="M10 6a2 2 0 0 1 2-2h28a2 2 0 0 1 2 2v36a2 2 0 0 1-2 2H12a2 2 0 0 1-2-2V6Z"/><path stroke-linecap="round" d="M34 6v36M6 14h8M6 24h8M6 34h8M27 4h12M27 44h12"/></g></svg>
-                          <h1 class="largeAppName">Mark it</h1>
+                          <svg className="largeLogoIcon" width="110" height="110" viewBox="0 0 48 48"><g fill="none" stroke="#17252A" strokeLinejoin="round" strokeWidth="1.2"><path d="M10 6a2 2 0 0 1 2-2h28a2 2 0 0 1 2 2v36a2 2 0 0 1-2 2H12a2 2 0 0 1-2-2V6Z"/><path strokeLinecap="round" d="M34 6v36M6 14h8M6 24h8M6 34h8M27 4h12M27 44h12"/></g></svg>
+                          <h1 className="largeAppName">Mark it</h1>
                       </div>
                   </div> 
 
