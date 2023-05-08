@@ -76,19 +76,19 @@ function ProfCourseCard(){
 
     const [currentAssignment,setCurrentAssignment] = useState({});
     const [editingAssignmentId,setEditingAssignmentId] = useState(null);
-    const [initialName,setInitialName] = useState('');
+    const [initialTitle,setInitialTitle] = useState('');
     const [initialPercentage,setInitialPercentage] = useState(null);
-    const [initialDate,setInitialDate] = useState('');
+    const [initialEnd,setInitialEnd] = useState('');
 
-    function handleEditClick(assignment){
+    function handleEditAssignmentClick(assignment){
       setEditingAssignmentId(assignment.id);
       setEditAssign(true);
       setCurrentAssignment(assignment);
       console.log(assignment);
 
-      setInitialName(assignment.name);
+      setInitialTitle(assignment.title);
       setInitialPercentage(assignment.percentage);
-      setInitialDate(assignment.date);
+      setInitialEnd(assignment.end);
     }
 
     function handleCancelEdit() {
@@ -97,9 +97,9 @@ function ProfCourseCard(){
 
     const saveEditProfAssignment = (e) => {
       console.log(editingAssignmentId);
-      console.log(initialName);
+      console.log(initialTitle);
       console.log(initialPercentage);
-      console.log(initialDate);
+      console.log(initialEnd);
       
        alert('Θέλετε σίγουρα να επεξεργαστείτε αυτή την εργασία;');
            // send the updated data to the server 
@@ -111,9 +111,9 @@ function ProfCourseCard(){
              },
              body: JSON.stringify({
                id: editingAssignmentId,
-               name: initialName, 
+               title: initialTitle, 
                percentage : initialPercentage ,
-               date: initialDate})
+               end: initialEnd})
              })
              .then((response) => {
                  if (response.ok) {
@@ -135,24 +135,24 @@ function ProfCourseCard(){
 
 
       const [addAssignment, setAddAssign] = useState(false);
-      const [assignName,setAssignName] = useState();
+      const [assignTitle,setAssignTitle] = useState();
       const [percentage,setPercentage] = useState();
-      const [date,setDate] = useState();
+      const [end,setEnd] = useState();
 
 
       const addProfAssignment =  (event) => {
         event.preventDefault();     
 
-        if(assignName!== undefined && percentage!== undefined && date!== undefined){
+        if(assignTitle!== undefined && percentage!== undefined && end!== undefined){
           alert('Θέλετε να δημιουργήσετε σίγουρα αυτή την εργασία;');
           
           fetch('http://localhost:8080/mark-it/professor/' + professorId + '/course/'+ courseId + '/assignments/addAssignment', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json','Access-Control-Allow-Origin' : '*' },
             body: JSON.stringify({
-            name: assignName, 
+            title: assignTitle, 
             percentage : percentage ,
-            date: date}),
+            end: end}),
           })
             .then((response) => { 
               if (response.ok) {
@@ -346,7 +346,6 @@ function ProfCourseCard(){
        .catch((error) => {
          console.error(error);
        });
-       
      }else{
        alert('Πρέπει να συμπληρώσετε όλα τα πεδία!');
      }
@@ -415,11 +414,11 @@ function ProfCourseCard(){
                                 <React.Fragment key={assignment.id}>
                                    { editAssign === false && 
                                       <tr key={assignment.id}>
-                                          <td>{assignment.name}</td>
+                                          <td>{assignment.title}</td>
                                           <td>{assignment.percentage}</td>
-                                          <td>{assignment.date}</td>
+                                          <td>{assignment.end}</td>
                                           <td>
-                                          <button className="editSecrCourse" onClick={() => handleEditClick(assignment)}>
+                                          <button className="editSecrCourse" onClick={() => handleEditAssignmentClick(assignment)}>
                                             <svg width="20" height="20" viewBox="0 0 256 256"><path fill="currentColor" d="m226.8 73.9l-44.7-44.7a19.8 19.8 0 0 0-28.2 0l-120 120a19.7 19.7 0 0 0-5.9 14.1V208a20.1 20.1 0 0 0 20 20h44.7a19.7 19.7 0 0 0 14.1-5.9l120-120a19.9 19.9 0 0 0 0-28.2ZM91 204H52v-39l84-84l39 39Zm101-101l-39-39l15-15l39 39Z"/></svg>
                                           </button>
                                           <button id="deleteSecrCourse" onClick={() => deleteAssignment(assignment.id)}>
@@ -432,9 +431,9 @@ function ProfCourseCard(){
                                         <tr className="newCourse" key={assignment.id} >
                                           <td><input type="text" 
                                                     name="name"
-                                                    value={initialName}
+                                                    value={initialTitle}
                                                     placeholder="Εργασία" 
-                                                    onChange={(e)=>setInitialSylName(e.target.value)}
+                                                    onChange={(e)=>setInitialTitle(e.target.value)}
                                                     /> </td>
                                           <td><input type="text" 
                                                     name="year" 
@@ -442,11 +441,11 @@ function ProfCourseCard(){
                                                     placeholder="Ποσοστό"  
                                                     onChange={(e)=>setInitialPercentage(e.target.value)}
                                                       /></td>
-                                          <td><input type="text" 
-                                                    name="semester" 
-                                                    value={initialDate} 
+                                          <td><input type="date" 
+                                                    name="end" 
+                                                    value={initialEnd} 
                                                     placeholder="Προθεσμία" 
-                                                    onChange={(e)=>setInitialDate(e.target.value)}
+                                                    onChange={(e)=>setInitialEnd(e.target.value)}
                                                       /></td>
                                           
                                           <td>
@@ -463,9 +462,9 @@ function ProfCourseCard(){
 
                   {  addAssignment  &&
                         <tr className="newCourse">
-                              <td><input type="text" name="name" placeholder="Τίτλος" onChange={(e)=>setAssignName(e.target.value)}/></td>
+                              <td><input type="text" name="title" placeholder="Τίτλος" onChange={(e)=>setAssignTitle(e.target.value)}/></td>
                               <td><input type="text" name="percentage" placeholder="Ποσοστό" onChange={(e)=>setPercentage(e.target.value)}/></td>
-                              <td><input etype="text"name="date" placeholder="Παράδοση" onChange={(e)=>setDate(e.target.value)}/></td>
+                              <td><input type="date" name="end" placeholder="Παράδοση" onChange={(e)=>setEnd(e.target.value)}/></td>
                               <td>
                               <button id="saveCourseEdit" onClick={addProfAssignment}>
                                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M3 19V5a2 2 0 0 1 2-2h11.172a2 2 0 0 1 1.414.586l2.828 2.828A2 2 0 0 1 21 7.828V19a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2Z"/><path d="M8.6 9h6.8a.6.6 0 0 0 .6-.6V3.6a.6.6 0 0 0-.6-.6H8.6a.6.6 0 0 0-.6.6v4.8a.6.6 0 0 0 .6.6ZM6 13.6V21h12v-7.4a.6.6 0 0 0-.6-.6H6.6a.6.6 0 0 0-.6.6Z"/></g></svg>
