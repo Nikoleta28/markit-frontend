@@ -57,7 +57,8 @@ function SecrProfile(){
         fetch('http://localhost:8080/mark-it/secretariat/' + secretariatId + '/updateSecretariat', {
         method: 'PUT',
         headers: {
-            'Content-Type': 'application/json'
+            'Content-Type': 'application/json',
+            'Access-Control-Allow-Origin' : '*'
         },
         body: JSON.stringify({
         university:editedUniversity,
@@ -123,7 +124,7 @@ function SecrProfile(){
                         <label>{secretariatData.university}</label>
                         <label>{secretariatData.department}</label>
                         <label>{secretariatData.email}</label>
-                        <label>{secretariatData.password}</label>
+                        {/* <label>{secretariatData.password}</label> */}
                     </div>
                     
                     }
