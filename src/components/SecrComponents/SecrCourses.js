@@ -10,15 +10,6 @@ function SecrCourses(){
 
     // const [courseId,setCourseId] = useState(null);
 
-      // function handleCancelEdit() {
-      //   setEditingCourse(null);
-      //   setEditCourse(false);
-      // }
-
-    // function handleSaveEdit(course, updatedCourseData) {
-    //   // onCourseUpdate(course.id, updatedCourseData);
-    //   setEditingCourse(null);
-    // }
 
     const [courseList,setCourseList] = useState([]);
   
@@ -36,6 +27,25 @@ function SecrCourses(){
     
        getSecrCourseList();
      }, [secretariatId]);
+
+
+     const [profList,setProfList] = useState([]);
+  
+     useEffect(() => {
+        const getSecrProfList = async () => {
+          try {
+            const response = await fetch(`http://localhost:8080/mark-it/secretariat/${secretariatId}/professorsList`);
+            const data = await response.json();
+            setProfList(data);
+ 
+          } catch (error) {
+            console.error("Error fetching secretariat prof list: ", error);
+          }
+        };
+     
+        getSecrProfList();
+      }, [secretariatId]);
+    
 
 //----------------------------------------------------------------------------------------------------------------
 
@@ -79,50 +89,17 @@ function handleCancelEdit() {
     setEditCourse(false);
 }
 
-const [editedCourseName,setEditedCourseName] = useState();
-const [editedYear,setEditedYear] = useState();
-const [editedSemester,setEditedSemester] = useState();
-const [editedProfessor,setEditedProfessor] = useState();
 
 
 const saveEditSecrCourse = (e) => {
-
-  // console.log(editingCourseId);
-  // console.log(editedCourseName);
-  // console.log(editedYear);
-  // console.log(editedSemester);
-  // console.log(editedProfessor);
-
-
- if(editedCourseName===undefined){
-   setEditedCourseName(initialName);
-   console.log(editedCourseName);
- }
-
- if(editedYear===undefined){
-   setEditedYear(initialYear);
-   console.log(editedYear);
- }
-
- if(editedSemester===undefined){
-   setEditedSemester(initialSemester);
-   console.log(editedSemester);
- }
-
- if( editedProfessor===undefined){
-   setEditedProfessor(initialProfessor);
-   console.log(editedProfessor);
- }
-
   console.log(editingCourseId);
-  console.log(editedCourseName);
-  console.log(editedYear);
-  console.log(editedSemester);
-  console.log(editedProfessor);
+  console.log(initialName);
+  console.log(initialYear);
+  console.log(initialSemester);
+  console.log(initialProfessor);
   
 
-   if(editedCourseName!== undefined && editedYear!== undefined && editedSemester!== undefined && editedProfessor!== undefined)
-    {  alert('Θέλετε σίγουρα να επεξεργαστείτε αυτό το μάθημα;');
+   alert('Θέλετε σίγουρα να επεξεργαστείτε αυτό το μάθημα;');
        // send the updated data to the server 
        fetch('http://localhost:8080/mark-it/secretariat/' + secretariatId + '/courses/updateCourse',{
          method: 'PUT',
@@ -132,10 +109,10 @@ const saveEditSecrCourse = (e) => {
          },
          body: JSON.stringify({
            id: editingCourseId,
-           name: editedCourseName, 
-           year : editedYear ,
-           semester: editedSemester,
-           professor: editedProfessor})
+           name: initialName, 
+           year : initialYear ,
+           semester: initialSemester,
+           professor: initialProfessor})
          })
          // .then(response => response.json())
          .then((response) => {
@@ -152,6 +129,7 @@ const saveEditSecrCourse = (e) => {
                 setCurrentCourse(body);
 
                 //close input form and display secretariat information
+                setCourseList(body);
                 setEditCourse(false);
          
                 //  // setEditingCourse({});
@@ -160,10 +138,6 @@ const saveEditSecrCourse = (e) => {
          .catch(error => {
              console.error('Error updating secretariat data:', error);
          });
-        }
-        else{
-          alert('Προέκυψε σφάλμα,προσπαθήστε ξανά!');
-        }
     
 }
 
@@ -203,6 +177,7 @@ const saveEditSecrCourse = (e) => {
             .then((body) => {
               console.log("Response body:", body);
               setAddCourse(false);
+              setCourseList(body);
           })
           .catch((error) => {
             console.error(error);
@@ -231,7 +206,8 @@ const deleteCourse = (id) => {
     })
       .then((response) => {
         if (response.ok) {
-          alert('Το μάθημα διαγράφηκε!');
+          
+          return response.json();
           // setSecrCourseList(secrCourseList.filter((course) => course.name !== name));
           // return response.json();
         }else {
@@ -239,7 +215,10 @@ const deleteCourse = (id) => {
         }
       })
       .then((body) => {
+        
         console.log("Response body:", body);
+        setCourseList(body);
+        alert('Το μάθημα διαγράφηκε!');
     })
     .catch((error) => {
       console.error(error);
@@ -301,44 +280,38 @@ return(
                             <tr className="newCourse" key={course.id} >
                               <td><input type="text" 
                                          name="name"
-                                         defaultValue={course.name} 
+                                         value={initialName}
+                                        //  defaultValue={course.name} 
                                          placeholder="Μάθημα" 
-                                         onChange={(e)=>setEditedCourseName(e.target.value)} 
-                                         onBlur={(e) => {
-                                          if (e.target.value === course.name) {
-                                            e.target.value = e.target.defaultValue;
-                                            setEditedCourseName(e.target.defaultValue);
-                                          }}}/> </td>
+                                         onChange={(e)=>setInitialName(e.target.value)}
+                                        /> </td>
                               <td><input type="text" 
                                          name="year" 
-                                         defaultValue={course.year} 
+                                         value={initialYear} 
                                          placeholder="Έτος"  
-                                         onChange={(e)=>setEditedYear(e.target.value)} 
-                                         onBlur={(e) => {
-                                           if (e.target.value === course.year) {
-                                             e.target.value = e.target.defaultValue;
-                                             setEditedYear(e.target.defaultValue);
-                                           }}}/></td>
+                                         onChange={(e)=>setInitialYear(e.target.value)}
+                                           /></td>
                               <td><input type="text" 
                                          name="semester" 
-                                         defaultValue={course.semester} 
+                                         value={initialSemester} 
                                          placeholder="Εξάμηνο" 
-                                         onChange={(e)=>setEditedSemester(e.target.value)}
-                                         onBlur={(e) => {
-                                          if (e.target.value === course.semester) {
-                                            e.target.value = e.target.defaultValue;
-                                            setEditedSemester(e.target.defaultValue);
-                                          }}}/></td>
-                              <td><input type="text" 
+                                         onChange={(e)=>setInitialSemester(e.target.value)}
+                                          /></td>
+                              <td><select className="dropdown" id="addProfCourse" onChange={(e)=>setInitialProfessor(e.target.value)}>
+                                    <option value="">{initialProfessor}</option>
+                                       {profList.map((professor,index) => (
+                                         <option key={index} value={professor}  >
+                                           {professor}
+                                         </option>
+                                       ))}
+                                     </select>
+                                   </td>
+                              {/* <td><input type="text" 
                                          name="professor" 
-                                         defaultValue={course.professor} 
+                                         value={initialProfessor} 
                                          placeholder="Καθηγητής" 
-                                         onChange={(e)=>setEditedProfessor(e.target.value)}
-                                         onBlur={(e) => {
-                                          if (e.target.value === course.professor) {
-                                            e.target.value = e.target.defaultValue;
-                                            setEditedProfessor(e.target.defaultValue);
-                                          }}}/></td>
+                                         onChange={(e)=>setInitialProfessor(e.target.value)}
+                                          /></td> */}
                               <td>
                               <button id="saveCourseEdit" onClick={(e) =>saveEditSecrCourse(e)}>
                                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M3 19V5a2 2 0 0 1 2-2h11.172a2 2 0 0 1 1.414.586l2.828 2.828A2 2 0 0 1 21 7.828V19a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2Z"/><path d="M8.6 9h6.8a.6.6 0 0 0 .6-.6V3.6a.6.6 0 0 0-.6-.6H8.6a.6.6 0 0 0-.6.6v4.8a.6.6 0 0 0 .6.6ZM6 13.6V21h12v-7.4a.6.6 0 0 0-.6-.6H6.6a.6.6 0 0 0-.6.6Z"/></g></svg>
@@ -356,7 +329,16 @@ return(
                       <td><input type="text" name="name" placeholder="Μάθημα" onChange={(e)=>setCourseName(e.target.value)}/></td>
                       <td><input type="text" name="year" placeholder="Έτος" onChange={(e)=>setYear(e.target.value)}/></td>
                       <td><input etype="text"name="semester" placeholder="Εξάμηνο" onChange={(e)=>setSemester(e.target.value)}/></td>
-                      <td><input type="text" name="professor" placeholder="Καθηγητής" onChange={(e)=>setProfessor(e.target.value)}/></td>
+                      {/* <td><input type="text" name="professor" placeholder="Καθηγητής" onChange={(e)=>setProfessor(e.target.value)}/></td> */}
+                      <td><select className="dropdown" id="addProfCourse" onChange={(e)=>setProfessor(e.target.value)}>
+                       <option value="">Επιλέξτε καθηγητή</option>
+                          {profList.map((professor,index) => (
+                            <option key={index}  value={professor} >
+                              {professor}
+                            </option>
+                          ))}
+                        </select>
+                      </td>
                       <td>
                       <button id="saveCourseEdit" onClick={addSecrCourse}>
                             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M3 19V5a2 2 0 0 1 2-2h11.172a2 2 0 0 1 1.414.586l2.828 2.828A2 2 0 0 1 21 7.828V19a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2Z"/><path d="M8.6 9h6.8a.6.6 0 0 0 .6-.6V3.6a.6.6 0 0 0-.6-.6H8.6a.6.6 0 0 0-.6.6v4.8a.6.6 0 0 0 .6.6ZM6 13.6V21h12v-7.4a.6.6 0 0 0-.6-.6H6.6a.6.6 0 0 0-.6.6Z"/></g></svg>
