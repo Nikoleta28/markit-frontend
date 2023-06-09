@@ -1,6 +1,7 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500&display=swap'); 
 
+
 *{
   font-family: 'Poppins', sans-serif;
 }
@@ -103,8 +104,10 @@ input:focus::-webkit-input-placeholder {
     margin-top: 0.5rem;
     margin-bottom: 1rem;
     border-radius: 29px;
-    border-color: white;
-    border-style:solid;
+    /* border-color: white;
+    border-style:solid; */
+    background-color: #004d603d;
+    box-shadow: rgba(0, 0, 0, 0.) 0px 25px 50px -12px;
     padding: 2rem 4rem;
 }
 
@@ -214,6 +217,36 @@ button:hover{
     margin: 2rem;
 }
 
+
+select:focus,
+select:hover{
+    border: none;
+}
+
+select{
+    background-color: transparent;
+    border: none;
+    color: white;
+    overflow-y: scroll;
+}
+
+#register{
+    margin-bottom: 2rem;;
+}
+
+.dropdown option{
+    background-color:#2a8597;
+    color: white;
+}
+
+
+.dropdown option:hover,
+.dropdown option:focus,
+.dropdown option:checked{
+    background-color: #004d60;
+}
+
+
 .newAccCont,.pushbtn{
    color: white;
    display: flex;
@@ -321,11 +354,11 @@ button:hover{
      0 var(--_i, var(--h)) #ffffff,
      0 0 rgb(0 0 0 / calc(var(--_i, 1) * 100%) );
    background: 
-     linear-gradient(#68d8fd3e 0 0) 
+     /* linear-gradient(#68d8fd3e 0 0)  */
+     linear-gradient(#79e2f460  0  0)
      bottom/100% calc(100% - var(--_i, 1) * 100%) no-repeat;
    overflow: hidden;
-   transition: 0.2s;
-  
+   transition: 0.3s;
 }
 
 .sidebar button:hover,
@@ -350,16 +383,17 @@ button:hover{
    align-items: center;   
 }
 
-
-
 .mainBox{
     margin-top: 4rem;
     margin-bottom: 8rem;
     width: 80%;
     padding: 1.5rem;
     border-radius: 29px;
-    border-color: white;
-    border-style:solid;
+    background-color: #004d6037;
+    /* box-shadow: rgba(0, 0, 0, 0.2) 0px 18px 50px -10px; */
+    /* background-color: #004d606f; */
+    /* border-color: white;
+    border-style:solid; */
 }
 
 .titleBox{
@@ -439,12 +473,12 @@ button:hover{
     width: 8rem;
     padding-top: 0.5rem;
     padding-bottom: 0.5rem;
-   
     /* border-bottom: 1px solid white; */
 }
 
 td input{
     min-width:max-content;
+    width: 8rem;
     text-align: center;
     padding-bottom: 2px;
     background:transparent;
@@ -454,13 +488,21 @@ td input{
     color: white;
 }
 
+#addProfCourse{
+   /* width:8rem; */
+   width: 10rem;
+}
+
 .mainPageHeader{
     width:100%;
     display: flex;
     justify-content: space-between;
+    place-content: flex-end;
+    padding-top: 1rem;
+    padding-right: 2rem;
 }
 
-.search_container{
+/* .search_container{
     place-items:center;
     display: flex;
     justify-content: space-around;
@@ -486,7 +528,6 @@ td input{
 .search_area:focus-within{
     box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
 } 
-
 
 .search_area input{
     background-color: transparent;
@@ -530,25 +571,25 @@ td input{
     padding-top: 0.5rem;
     padding-bottom: 0.5rem;
     width:100%
-}
-
+} */
 
 .infoForm{
-    margin-top: 2rem;
+    margin-top: 4rem;
     display: flex;
     flex-direction: column;
     justify-content: center; 
     align-items: center;  
     /* background-color: #1e5352; */
-    border-color: white;
-    border-style:solid;
+    /* border-color: white;
+    border-style:solid; */
+    background-color: #004d6037;
+    /* background-color: #004d60; */
     border-radius: 29px;
     height: auto;
     width: auto;
     padding-top: 1rem ;
     padding-bottom: 2rem; 
  }
-
 
 .profileInfo{
     width: 80%;
@@ -580,7 +621,7 @@ td input{
     border:none;
     outline: none;
     border-bottom: 1px solid white;
-    padding: 0.5rem;
+    padding: 0.2rem;
     color: white;
     font-size: medium;
     margin-right: 0.5rem;
@@ -590,23 +631,23 @@ td input{
      display: flex;
      justify-content: center; 
      align-items: center;  
-     margin-top: 1rem;
+     margin-top: 1.5rem;
      margin-bottom: 1rem;
   }
 
 .profilePic{
     margin-bottom: 1.5rem;
- } 
+} 
 
- .edit{
-    width: 100%;
-    margin-right: 2rem;
-    margin-top: 0.5rem;
-    display: flex;
-    justify-content: end;
- }
+.edit{
+  width: 100%;
+  margin-right: 2rem;
+  margin-top: 0.5rem;
+  display: flex;
+  justify-content: end;
+}
 
- .button,.edit a{
+.button,.edit a{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -621,10 +662,10 @@ td input{
     text-decoration: none; 
     font-size: small;
     width: auto;
- }
+}
 
- .button:hover ,.edit a:hover{
-    background-color: rgba(255,255,255, .30);;
+.button:hover ,.edit a:hover{
+   background-color: rgba(255,255,255, .30);;
 }
 
 #deleteSecrCourse{
@@ -634,6 +675,7 @@ td input{
 .courseList{
     padding: 0;
     color: white;
+    margin-top: 1.5rem;
 }
 
 .courseList li{
@@ -641,6 +683,7 @@ td input{
   justify-content: space-between;
   padding: 0;
   font-size: medium;
+  padding-left: 0.2rem;
 }
 
 .profCourseCard{
@@ -651,6 +694,7 @@ td input{
   display: flex;
   font-size: medium;
   width: 55%;
+  margin-top: 1rem;
   padding-top: 1.5rem;
   padding-bottom: 1.5rem;
   /* border-bottom: 1px solid white; */
@@ -670,6 +714,10 @@ td input{
 .profCourseTable thead{
     text-align: center;
     padding-bottom: 0.5rem;
+    position: sticky;
+}
+
+thead tr{
     position: sticky;
 }
 
@@ -698,6 +746,10 @@ td input{
     background: none;
 }
 
+#backBtn{
+    place-self: flex-end;
+}
+
 #goToCourses{
     background: none;
     font-size: large;
@@ -707,21 +759,26 @@ td input{
 
 .homeContainer{
     display: flex;
-    flex-direction: column;
-    justify-content: center; 
-    align-items: center;
-    width: 70%
+    /* flex-direction: column; */
+    justify-content: space-around; 
+    width: 100%;
+    height: 100%;
+    /* width: 80%; */
+    /* margin-top: 6rem; */
+    /* height: 30 rem; */
 }
 
 .courseListLinkBox{
     /* background-color: #68b0ad5b; */
-    border-color: white;
-    border-style:solid;
+    /* border-color: white;
+    border-style:solid; */
+    background-color: #004d6037;
     margin-top: 4rem;
     margin-bottom: 2rem;
-    padding: 1rem;
+    padding: 1.5rem;
     border-radius: 29px;  
-    width: 60%;
+    width: 350px;
+    height: 400px;
     /* background-color: #565b5c38; */
     /* box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;  */
 }
@@ -737,6 +794,7 @@ td input{
     width: 70%;
     padding-bottom: 0.5rem;
     border-bottom: 1px solid white;
+    
 }
 
 .titleBoxSmall label{
@@ -744,7 +802,9 @@ td input{
     justify-content: center; 
     align-items: center;
     color: white;
+    font-size: medium;
     font-size: large;
+    font-weight: lighter;
 }
 
 .courseListSmallLink{
@@ -756,45 +816,102 @@ td input{
 
 .calendarBox{
     /* background-color: #1e5352; */
-    border-color: white;
-    border-style:solid;
+    /* border-color: white;
+    border-style:solid; */
+    padding: 1.5rem;
+    background-color: #004d6037;
     margin-top: 4rem;
     margin-bottom: 8rem;
-    padding: 1rem;
     border-radius: 29px;  
-    width: 40%;
+    height: 500px;
+    width: 425px;
     /* background-color: #565b5c38; */
     /* box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px; */
 }
 
+.fc{
+    margin-top: 1.5rem;
+    height: 80%;
+    padding: 0%;
+}
+
+.fc h2 { 
+    color: white;
+    font-weight: 400;
+}
+
+.fc button{
+    justify-items: center;
+}
+
+.fc .fc-toolbar.fc-header-toolbar{
+    height: 2.5rem;
+}
+
+.fc .fc-col-header-cell-cushion {
+    color: aliceblue;
+    font-weight: 300;
+}
+
+.fc .fc-daygrid-day-number {
+    color: #014353;
+}
+
+.fc .fc-button {
+   display: flex;
+   align-items: center;  
+}
+
+.fc-view-harness {
+    height: 350px;
+}
+
+.fc-dayGridMonth-view {
+    height: 350px;
+}
+
+.event-tooltip {
+    position: absolute;
+    color: white;
+    background-color:  #014353;
+    /* background-color: #ffffff; */
+    border: 1px solid #cccccc00;
+    border-radius: 5px;
+    padding: 5px;
+    z-index: 9999;
+  }
 
 .buttonsCourses{
   display: flex;
   flex-wrap: nowrap;
 }
 
- .svgLinkButton {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: rgba(255,255, 255, .20);
-    outline: none;
-    border: none;
-    border-radius: 8px;
-    padding: 1px 10px;
-    transition-duration: 0.5s;
-    color: white;
-    text-decoration: none; 
-    font-size: small;
-    width: auto;
-    margin-right: 0.5rem;
- }
+
+#avCourses{
+    margin-top: 2rem;
+}
+
+.svgLinkButton {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   background: rgba(255,255, 255, .20);
+   outline: none;
+   border: none;
+   border-radius: 8px;
+   padding: 1px 10px;
+   transition-duration: 0.5s;
+   color: white;
+   text-decoration: none; 
+   font-size: small;
+   width: auto;
+   margin-right: 1rem;
+}
 
 .flexCard{
     display: flex;
     padding-top: 1rem;
     padding-bottom: 1rem;
-
 }
 
 .firstColumn{
@@ -808,6 +925,7 @@ td input{
     color:white;
     font-size: medium;
     padding-left: 0.5rem;
+    margin-bottom: 2rem;
 }
 
 .stdntExercises{
@@ -823,8 +941,7 @@ td input{
     border-radius: 29px;
     padding: 1rem;
     /* box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px; */
-    margin-bottom: 2rem;
-    
+    margin-bottom: 2rem;   
 }
 
 .stdCourseExTable{
@@ -842,9 +959,11 @@ td input{
 
 .stdCourseExTable td{
     padding-top: 0.5rem;
-    padding-bottom: 0.5rem;
+    /* padding-bottom: 0.5rem; */
+    font-size: small;
 }
 
+.studentAssMarks { font-size: small;}
 
 .exNum{
     font-size: small;
@@ -858,15 +977,25 @@ td input{
 }
 
 .mark input{
-    width: 4rem;
+    width: 3rem;
+}
+
+.finalMark{
+    margin-right: 1rem;
+    margin-left: 0.2rem;
 }
 
 .courseHoursCalendar{
     width: 90%;
+   height: 710px;
     display: flex;
-    align-items: center;
+    flex-direction: column;
+   
+   /* align-content: center; */
+    /* align-items: center; */
     color: white;
     overflow-y:auto;
+    overflow-x: auto;
     /* background-color: #68b0ad5b; */
     background-color: #565b5c38;
     border-radius: 29px;
@@ -874,12 +1003,112 @@ td input{
     /* box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;  */
 }
 
+.calendarStudyHours{
+    margin-top: 0.5rem;
+    margin-bottom: 1rem;
+}
 
 .hoursHeaderSmall{
     display: flex;
     justify-content: flex-start; 
     align-items: center;
     width: 60%;
+}
+
+.modal{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    /* background-color: #004d60;
+    border-radius: 29px; */
+    padding: 1rem;
+}
+
+.addStHours{
+    margin-bottom: 1.2rem;
+}
+
+.addSHbox{
+    display: flex;
+    flex-direction: column;
+}
+
+.addSHform{
+    display: flex;
+    justify-content: space-between;
+}
+
+.stHrs{
+ display: flex;
+ padding-left: 0.3rem;
+}
+
+.addStHours input,.btnArea input{
+    /* margin-bottom: 1rem;; */
+    text-align: center;
+    background:transparent;
+    border:none;
+    outline: none;
+    border-bottom: 1px solid white;
+    width: 3rem;
+    padding: 0.2rem;
+    color: white;
+    font-size: small;
+    margin-right: 0.5rem;
+}
+
+
+.addStHours form{
+    display: flex;
+    justify-content: center;
+    margin-top: 1.2rem;
+}
+
+#addSTBtn{
+    margin-right: 0.5rem;
+}
+
+.clendarEvent{
+    display: flex;
+    padding-left: 0.3rem;
+    padding-right: 0.3rem;
+    padding-top: 0rem;
+    padding-bottom: 0rem;
+    align-items: center;
+    justify-content: space-between;
+}
+
+
+#calBtn,#calBtn2{
+    background: none;
+    padding: 0rem;
+    margin-left: 0.5rem;
+    place-items: center;
+}
+
+#calBtn{
+    margin-left: 1.5rem;
+    
+}
+
+
+#calBtn2{
+    margin-left: 0.5rem;
+}
+
+#addSyllabus{
+    margin-top: 1rem;
+    font-size: medium;
+   
+}
+
+.editStHours{
+    display: flex;
+    flex-direction: column;
+}
+
+.addSHbox{
+    margin-right: 1rem;
 }
 
 .hoursTitleBoxSmall,.predictionTitleBoxSmall{
@@ -940,4 +1169,26 @@ td input{
 .insertFinalMark input{
     width: 4rem;
     margin-right: 1rem;
+}
+
+
+.btnArea{
+    display: flex;
+    justify-content: center;
+    padding: 1rem;
+}
+
+
+.hours{
+    margin-right: 1.5rem;
+}
+
+.rankingText{
+    font-size: small;
+}
+
+.positionNum{
+    margin-left: 0.3rem;
+    margin-right: 0.3rem;
+    color:#38deff;
 }
