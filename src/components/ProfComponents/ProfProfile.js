@@ -81,10 +81,6 @@ function ProfProfile(){
    }
 
 
-
-
-
-
     const [showProfInfo,setShowProfInfo] = useState(true);
 
     const [editInfo,setEditInfo] = useState(false);
