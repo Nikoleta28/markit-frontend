@@ -132,7 +132,7 @@ function ProfMainPage(){
                                     <div className="boxSVG">
                                         <svg width="25" height="25" viewBox="0 0 512 512"><rect width="416" height="384" x="48" y="80" fill="none" stroke="#FFFFFF" strokeLinejoin="round" strokeWidth="32" rx="48"/><circle cx="296" cy="232" r="24" fill="#FFFFFF"/><circle cx="376" cy="232" r="24" fill="#FFFFFF"/><circle cx="296" cy="312" r="24" fill="#FFFFFF"/><circle cx="376" cy="312" r="24" fill="#FFFFFF"/><circle cx="136" cy="312" r="24" fill="#FFFFFF"/><circle cx="216" cy="312" r="24" fill="#FFFFFF"/><circle cx="136" cy="392" r="24" fill="#FFFFFF"/><circle cx="216" cy="392" r="24" fill="#FFFFFF"/><circle cx="296" cy="392" r="24" fill="#FFFFFF"/><path fill="none" stroke="#FFFFFF" strokeLinecap="round" strokeLinejoin="round" strokeWidth="32" d="M128 48v32m256-32v32"/><path fill="none" stroke="#FFFFFF" strokeLinejoin="round" strokeWidth="32" d="M464 160H48"/></svg>
                                     </div>
-                                    <label>Ημερολόγιο</label>
+                                    <label>Ημερολόγιο εργασιών</label>
                                 </div>
                             </div>
 
