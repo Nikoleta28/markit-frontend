@@ -18,8 +18,8 @@ function Register(props){
     return(
 
         <div>
-                <span className="pushbtn">Επίλεξε ένα από τα παρακάτω:</span>
-                <div class="accOptions">
+                <span className="pushbtn">Επιλέξτε ένα από τα παρακάτω:</span>
+                <div className="accOptions">
                     <button onClick={()=> showForm('stdnt')} id="student">Μαθητής</button>
                     <button onClick={()=> showForm('profsr')} id="prof">Καθηγητής</button>
                     <button onClick={()=> showForm('secrt')} id="secr">Γραμματεία</button>
@@ -36,7 +36,7 @@ function Register(props){
              </>
              
             <div className="goToLogInBtn">
-             <button onClick={() => props.onFormSwitch('login')} > Έχεις ήδη λογαριασμό; Συνδέσου!</button>
+             <button onClick={() => props.onFormSwitch('login')} > Έχετε ήδη λογαριασμό; Συνδεθείτε!</button>
             </div>
       
         </div>

@@ -9,6 +9,7 @@ import ProfMainPage from "./pages/ProfMainPage";
 import StudentMainPage from "./pages/StudentMainPage";
 import SecrMainPage from "./pages/SecrMainPage";
 
+
 function App() {
  
   const [currentForm, setCurrentForm] = useState('login');
@@ -44,7 +45,15 @@ function App() {
               <Route path="professor" element={<ProfMainPage />} />
               <Route path="student" element={<StudentMainPage />} />
               <Route path="secretariat" element={<SecrMainPage />} />
-              <Route path="*" element={<h1> 404</h1>} />
+              <Route path="*" element={
+               <div>
+                <h1> 
+                  <span>404
+                    Δεν έχετε πρόσβαση σε αυτή την σελίδα.
+                  </span>
+                </h1>
+               </div> 
+              } />
             </Routes>
          </BrowserRouter>
 

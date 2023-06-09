@@ -18,8 +18,7 @@ function Login(props){
         event.preventDefault();     
         fetch('http://localhost:8080/mark-it/api/login', {
           method: 'POST',
-          headers: { 'Content-Type': 'application/json',
-            'Access-Control-Allow-Origin' : '*' },
+          headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({email: email, password: password}),
           // mode: "no-cors",
         })
@@ -70,13 +69,6 @@ function Login(props){
       }     
 
 
-     //fetch /login
-     //
-
-     //if extst
-     //localStorage.setItem   ..... sessionstorage
-     //redirect
-
     return(
       <>
           <div className="logInContainer">
@@ -102,7 +94,7 @@ function Login(props){
             </form>
           </div>
           <div className="createAcc">
-              <span className="notSignedIn">Δεν έχεις κάνει εγγραφή;</span> 
+              <span className="notSignedIn">Δεν έχετε κάνει εγγραφή;</span> 
               <button onClick={() =>props.onFormSwitch('register')}>Δημιουργία Λογαριασμού</button>
           </div>
      </>
