@@ -1,4 +1,6 @@
-MARK-IT 
+# MARK-IT 
+
+## Front-end code 
 
 Welcome to my Bachelor Thesis web application!
 
