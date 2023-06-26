@@ -79,6 +79,7 @@ function StudentRegister(){
         <div className="accForm">
             <input type="text" placeholder="Ονοματεπώνυμο" required/>
             <select className="dropdown" id="register" >
+            <option value="">Επιλέξτε πανεπιστήμιο</option>
               {universities.map((university,index) => (
                 <option key={index} value={university} >
                   {university}
@@ -86,6 +87,7 @@ function StudentRegister(){
               ))}
           </select>
           <select className="dropdown" id="register" >
+          <option value="">Επιλέξτε τμήμα</option>
             {departments.map((department,index) => (
               <option key={index} value={department}>
                 {department}
