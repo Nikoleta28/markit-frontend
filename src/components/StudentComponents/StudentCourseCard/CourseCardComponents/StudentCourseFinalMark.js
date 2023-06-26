@@ -1,7 +1,11 @@
 import React from "react";
 import { useState , useEffect } from "react";
 
-function StudentCourseFinalMark(){
+function StudentCourseFinalMark(props){
+
+  const { updateStudyHoursAverage } = props;
+  const { updateStudyHoursMAX } = props;
+  const { updateStudyHoursMIN } = props;
 
     const courseId = localStorage.getItem("studentCourseId");
     const studentId = localStorage.getItem("userId");
@@ -47,6 +51,7 @@ const [addFinalMark,setAddFinalMark] = useState(false);
 
 function changeMarkState(body){
   setFinalMark(body);
+  updateGeneralStHours();
 }
 
 // function handleAddFinalMark(){
@@ -133,6 +138,62 @@ const deleteFinalMark = (mark) => {
   
 }
 
+function updateGeneralStHours(){
+
+  fetch(`http://localhost:8080/mark-it/statistics/student/${studentId}/course/${courseId}/StudyHoursAverage`, {
+    method: 'GET', // Use the appropriate HTTP method
+    headers: {
+      'Content-Type': 'application/json', 
+      'Access-Control-Allow-Origin' : '*'
+    }
+  })
+    .then((response) => {
+       if (response.ok) { // Check if the response is successful
+         return response.json();
+       } else {
+         console.error("Error fetching students ranking: ", response.status);
+       }
+   })
+   .then((body) => {
+    updateStudyHoursAverage(body);
+});
+
+fetch(`http://localhost:8080/mark-it/statistics/student/${studentId}/course/${courseId}/StudyHoursMAX`, {
+  method: 'GET', // Use the appropriate HTTP method
+  headers: {
+    'Content-Type': 'application/json', 
+    'Access-Control-Allow-Origin' : '*'
+  }
+})
+  .then((response) => {
+     if (response.ok) { // Check if the response is successful
+       return response.json();
+     } else {
+       console.error("Error fetching students ranking: ", response.status);
+     }
+ })
+ .then((body) => {
+  updateStudyHoursMAX(body);
+});
+
+fetch(`http://localhost:8080/mark-it/statistics/student/${studentId}/course/${courseId}/StudyHoursMIN`, {
+  method: 'GET', // Use the appropriate HTTP method
+  headers: {
+    'Content-Type': 'application/json', 
+    'Access-Control-Allow-Origin' : '*'
+  }
+})
+  .then((response) => {
+     if (response.ok) { // Check if the response is successful
+       return response.json();
+     } else {
+       console.error("Error fetching students ranking: ", response.status);
+     }
+ })
+ .then((body) => {
+  updateStudyHoursMIN(body);
+});
+}
 
     return(
         <div className="studentFinalMark">
@@ -158,6 +219,7 @@ const deleteFinalMark = (mark) => {
                 <form onSubmit={e => addFinalMarkToStudent(e)}>
                   <input type="text" 
                           name="mark"
+                          defaultValue={finalMark.mark}
                           placeholder="Τελικός βαθμός" 
                           required
                           />

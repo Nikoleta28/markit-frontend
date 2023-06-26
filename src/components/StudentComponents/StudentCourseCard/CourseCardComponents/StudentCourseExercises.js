@@ -5,7 +5,7 @@ import StudentCourseCard from "../StudentCourseCard";
 
 const StudentCourseExercises = (props) => {
 
-  const { updateArray } = props;
+  const { updateAssMarksSum } = props;
 
   //  const {getStudentRanking} = props;
 
@@ -13,12 +13,8 @@ const StudentCourseExercises = (props) => {
     const studentId = localStorage.getItem("userId");
 
     // const [course,setCourse] = useState([]);
-
-  
     const [asMarkList,setAssignmentMarkList] = useState([]);
 
-   
-  
     useEffect(() => {
         const getAssignmentMarkList = async () => {
           try {
@@ -33,6 +29,8 @@ const StudentCourseExercises = (props) => {
                 const data = await response.json();
                 setAssignmentMarkList(data);
                 console.log(asMarkList);
+                getStudentAssMarksSum();
+                // getStudentRanking();
               } else {
                 console.error("we get response but its an error: ", response.status);
               }
@@ -44,26 +42,25 @@ const StudentCourseExercises = (props) => {
       }, [studentId]);
 
 
-      const [assMark,setAssMark] = useState(null);
 
+      
+
+      const [assMark,setAssMark] = useState(null);
       const [addNewMark,setAddNewMark] = useState(false);
 
       // const [editAssignMark,setEditAssignMark] = useState(false);
 
       const [editingAssignmentMarkId,setEditingAssignmentMarkId] = useState(null);
-
-      
+    
     function handleAddAssignmentMark(assignmentMark){
            setAddNewMark(true);
            setEditingAssignmentMarkId(assignmentMark.id);
     }
      
-
    const addAssignmentMark = (e)=>{
 
         e.preventDefault();     
         // console.log(assMark);
-         
         // console.log(editingAssignmentMarkId);
 
         fetch(`http://localhost:8080/mark-it/student/${studentId}/course/${courseId}/assignment/${editingAssignmentMarkId}/addAssignmentMark`, {
@@ -85,6 +82,7 @@ const StudentCourseExercises = (props) => {
             setAddNewMark(false);
             setEditingAssignmentMarkId(null);
             changeArrayState(body);
+            getStudentAssMarksSum();
             // getStudentRanking();
         })
         .catch((error) => {
@@ -130,6 +128,7 @@ const StudentCourseExercises = (props) => {
             alert('Ο βαθμός διαγράφηκε!');
             setEditingAssignmentMarkId(null);
             changeArrayState(body);
+            getStudentAssMarksSum();
             // getStudentRanking();
         })
         .catch((error) => {
@@ -137,6 +136,54 @@ const StudentCourseExercises = (props) => {
         });
        
       }
+
+
+  // const {updateRankingPosition} = props;
+      
+  // function getStudentRanking(){
+
+  //   fetch(`http://localhost:8080/mark-it/student/${studentId}/course/${courseId}/ranking`, {
+  //               method: 'GET', // Use the appropriate HTTP method
+  //               headers: {
+  //                 'Content-Type': 'application/json', 
+  //                 'Access-Control-Allow-Origin' : '*'
+  //               }
+  //             })
+  //               .then((response) => {
+  //                  if (response.ok) { // Check if the response is successful
+  //                    return response.json();
+  //                  } else {
+  //                    console.error("Error fetching students ranking: ", response.status);
+  //                  }
+  //              })
+  //              .then((body) => {
+  //               updateRankingPosition(body);
+  //           });
+  // }
+
+
+  function getStudentAssMarksSum(){
+
+    fetch(`http://localhost:8080/mark-it/statistics/student/${studentId}/course/${courseId}/AssignmentMarksSum`, {
+                method: 'GET', // Use the appropriate HTTP method
+                headers: {
+                  'Content-Type': 'application/json', 
+                  'Access-Control-Allow-Origin' : '*'
+                }
+              })
+                .then((response) => {
+                   if (response.ok) { // Check if the response is successful
+                     return response.json();
+                   } else {
+                     console.error("Error fetching students ranking: ", response.status);
+                   }
+               })
+               .then((body) => {
+                updateAssMarksSum(body);
+            });
+  }
+
+
 
 
     return(
@@ -193,9 +240,6 @@ const StudentCourseExercises = (props) => {
 
                                      </React.Fragment>
                         ))}
-
-
-                         
                      </tbody>
                 </table>
             </div>
